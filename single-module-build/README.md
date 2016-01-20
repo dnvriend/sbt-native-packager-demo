@@ -5,26 +5,24 @@ In this build, we will look at [the most simple style of packaging](http://www.s
 In this example, we have a minimum of configuration, so its all the defaults.
  
 # Configuring the project
-1. In `project/build.properties` add:
+- In `project/build.properties` add:
 
 ```bash
 sbt.version=0.13.9
 ```
 
-2. In `project/plugins.sbt` add:
+- In `project/plugins.sbt` add:
 
 ```scala
-resolvers ++= Seq(
-  "sonatype-releases" at "https://oss.sonatype.org/content/repositories/releases/",
-  "bintray-sbt-plugin-releases" at "http://dl.bintray.com/content/sbt/sbt-plugin-releases",
-  "Typesafe repository" at "http://repo.typesafe.com/typesafe/releases/"
-)
+// to resolve jars //
+resolvers +=  "bintray-sbt-plugin-releases" at "http://dl.bintray.com/content/sbt/sbt-plugin-releases"
 
-// to package applications
+// to package applications //
 addSbtPlugin("com.typesafe.sbt" %% "sbt-native-packager" % "1.1.0-M3")
+
 ```
 
-3. Configure the project with minimum settings:
+- Configure the project with minimum settings:
 
 ```scala
 name := "simple-java-packaging"
@@ -61,7 +59,7 @@ The plugin created a `bin` directory, containing the launch scripts and a `lib` 
 dependent jars. You can test the local distribution by launching the script in the `bin` directory.
 
 # Creating a zip and tgz distribution
-The steps above did package our application, it just added the `sbt-native-packager` plugin to your project and created
+The steps above did __not__ package our application, it just added the `sbt-native-packager` plugin to your project and created
 a local `staging` directory containing all the files our distribution will be based on, just for us to verify that everything
 works as expected.
 
@@ -76,18 +74,7 @@ for us. Let's try it (the output below has been edited):
 > ;clean;universal:packageBin;universal:packageZipTarball
 [success] Total time: 0 s, completed 19-jan-2016 19:42:56
 [info] Packaging /Users/dennis/projects/sbt-native-packager-test/single-module-build/target/scala-2.11/simple-java-packaging_2.11-1.0.0-sources.jar ...
-[info] Done packaging.
-[info] Packaging /Users/dennis/projects/sbt-native-packager-test/single-module-build/target/scala-2.11/simple-java-packaging_2.11-1.0.0.jar ...
-[info] Done packaging.
-[success] Total time: 1 s, completed 19-jan-2016 19:42:57
-[info] Wrote /Users/dennis/projects/sbt-native-packager-test/single-module-build/target/scala-2.11/simple-java-packaging_2.11-1.0.0.pom
-a simple-java-packaging-1.0.0
-a simple-java-packaging-1.0.0/bin
-a simple-java-packaging-1.0.0/lib
-a simple-java-packaging-1.0.0/lib/org.scala-lang.scala-library-2.11.7.jar
-a simple-java-packaging-1.0.0/lib/simple-java-packaging.simple-java-packaging-1.0.0.jar
-a simple-java-packaging-1.0.0/bin/simple-java-packaging
-a simple-java-packaging-1.0.0/bin/simple-java-packaging.bat
+...
 [success] Total time: 0 s, completed 19-jan-2016 19:42:57
 ```
 
@@ -100,7 +87,10 @@ It created the following with a single line!
 ```
 
 The zip and tgz files contains exact the same content (and directory structure) we found in the `staged` directory.
-The `zip` and `tgz` files can be distributed and the whole world can experience our Hello World!
+The `zip` and `tgz` files can be distributed and the whole world can experience our Hello World! 
+
+Of course, the behavior of the `sbt-native-packager` can be configured, and there is a [cheatsheet](http://www.scala-sbt.org/sbt-native-packager/archetypes/cheatsheet.html)
+available with configuration items, scopes and variables that are available for us to tweak the behavior. 
 
 # Creating a docker distribution
 [Docker](https://www.docker.com/) is a very popular distribution format, because you can build, ship and run our 

@@ -14,8 +14,16 @@
  * limitations under the License.
  */
 
-package com.github.dnvriend
+version in ThisBuild := "1.0.0"
 
-object HelloWorld extends App {
-  println("Hello World!")
-}
+organization in ThisBuild := "com.github.dnvriend"
+
+scalaVersion in ThisBuild := "2.11.7"
+
+licenses in ThisBuild +=("Apache-2.0", url("http://opensource.org/licenses/apache2.0.php"))
+
+lazy val root = (project in file("."))
+	.aggregate(singleModuleBuild) // When a task is run on this project, it will also be run on aggregated projects.
+	.dependsOn(singleModuleBuild) // Adds classpath dependencies on internal or external projects.
+
+lazy val singleModuleBuild = project in file("single-module-build")
