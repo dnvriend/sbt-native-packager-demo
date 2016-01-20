@@ -7,6 +7,8 @@ The following documentation is available:
 - [SBT Native Packager Universal Plugin](http://www.scala-sbt.org/sbt-native-packager/formats/universal.html)
 - [SBT Native Packager Archetype Cheatsheet](http://www.scala-sbt.org/sbt-native-packager/archetypes/cheatsheet.html)
 - [SBT Native Packager Packaging Formats](http://www.scala-sbt.org/sbt-native-packager/formats/index.html)
+- [Nepomuk Seiler - SBT Native Packager Examples](https://github.com/muuki88/sbt-native-packager-examples)
+
 
 ## Examples
 The following examples are sorted from very simple to complex. Simple projects only use defaults that come out
