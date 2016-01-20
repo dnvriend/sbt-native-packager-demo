@@ -51,7 +51,7 @@ enablePlugins(JavaAppPackaging)
 `docker:publishLocal` to create a docker image in your local repository.
 
 # Available Archetypes
-[Archetypes](http://www.scala-sbt.org/sbt-native-packager/gettingstarted.html#archetypes) __packaging defaults__ that make assumptions how to package our application and make it easy for us to 
+[Archetypes](http://www.scala-sbt.org/sbt-native-packager/gettingstarted.html#archetypes) are __packaging defaults__ that make assumptions how to package our application and make it easy for us to 
 package our application quickly. Of course, when we don't like (some of) the default behaviors we can override 
 those by overriding the appropriate key using the [archetype cheatsheet](http://www.scala-sbt.org/sbt-native-packager/archetypes/cheatsheet.html). 
 
@@ -61,8 +61,12 @@ to `build.sbt` and you are set.
   
 The following [archetypes](http://www.scala-sbt.org/sbt-native-packager/gettingstarted.html#archetypes) are available:
 
-- [Java Application](http://www.scala-sbt.org/sbt-native-packager/archetypes/java_app/): `enablePlugins(JavaAppPackaging)` - Creates a standalone package, with a `bin/lib` directory structure and an executable bash/bat script.
-- [Java Server](http://www.scala-sbt.org/sbt-native-packager/archetypes/java_server/): `enablePlugins(JavaServerAppPackaging)` - Creates a standalone package with an executable bash/bat script and additional configuration and autostart.
+- [Java Application](http://www.scala-sbt.org/sbt-native-packager/archetypes/java_app/): 
+  - `enablePlugins(JavaAppPackaging)` 
+  - Creates a standalone package, with a `bin/lib` directory structure and an executable bash/bat script.
+- [Java Server](http://www.scala-sbt.org/sbt-native-packager/archetypes/java_server/): 
+  - `enablePlugins(JavaServerAppPackaging)` 
+  - Creates a standalone package with an executable bash/bat script and additional configuration and autostart.
 
 # Available Packaging Formats
 Believe it or not, the `zip`, `tgz` and `docker` are not the only packaging formats available. The `sbt-native-packager`
