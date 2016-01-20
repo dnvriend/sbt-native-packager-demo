@@ -1,4 +1,4 @@
-# simple-java-packaging
+# simple-javaapp-packaging
 In this build, we will look at [the most simple style of packaging](http://www.scala-sbt.org/sbt-native-packager/archetypes/java_app/my-first-project.html) you can think of, the 
 `JavaAppPackaging` packaging archetype that comes out of the box with the `sbt-native-packager` plugin.
 
@@ -46,12 +46,11 @@ after running the `stage` task in the sbt console:
 target/universal
 ├── stage
 │   ├── bin
-│   │   ├── simple-java-packaging
-│   │   └── simple-java-packaging.bat
+│   │   ├── simple-javaapp-packaging
+│   │   └── simple-javaapp-packaging.bat
 │   └── lib
-│       ├── org.scala-lang.scala-library-2.11.7.jar
-│       └── simple-java-packaging.simple-java-packaging-1.0.0.jar
-        └── simple-java-packaging.bat
+│       ├── com.github.dnvriend.simple-javaapp-packaging-1.0.0.jar
+│       └── org.scala-lang.scala-library-2.11.7.jar
 ```
 
 The `stage` task creates a local directory with all the files laid out as they would be in the final distribution.
@@ -72,18 +71,16 @@ for us. Let's try it (the output below has been edited):
  
 ```bash
 > ;clean;universal:packageBin;universal:packageZipTarball
-[success] Total time: 0 s, completed 19-jan-2016 19:42:56
-[info] Packaging /Users/dennis/projects/sbt-native-packager-test/single-module-build/target/scala-2.11/simple-java-packaging_2.11-1.0.0-sources.jar ...
 ...
-[success] Total time: 0 s, completed 19-jan-2016 19:42:57
+[success] Total time: 0 s, completed 20-jan-2016 15:41:13
 ```
 
 It created the following with a single line!
 
 ```bash
-└── universal
-    ├── simple-java-packaging-1.0.0.tgz
-    ├── simple-java-packaging-1.0.0.zip
+target/universal
+├── simple-javaapp-packaging-1.0.0.tgz
+├── simple-javaapp-packaging-1.0.0.zip
 ```
 
 The zip and tgz files contains exact the same content (and directory structure) we found in the `staged` directory.
@@ -104,8 +101,8 @@ for us. We can use the command `docker:stage` for this:
 
 ```bash
 > docker:stage
-[info] Wrote /Users/dennis/projects/sbt-native-packager-test/single-module-build/target/scala-2.11/simple-java-packaging_2.11-1.0.0.pom
-[success] Total time: 0 s, completed 19-jan-2016 20:20:54
+[info] Wrote /Users/dennis/projects/sbt-native-packager-demo/simple-javapp-packaging/target/scala-2.11/simple-javaapp-packaging_2.11-1.0.0.pom
+[success] Total time: 0 s, completed 20-jan-2016 15:42:06
 ```
 
 It created the following directory structure:
@@ -118,11 +115,11 @@ target/docker
     └── opt
         └── docker
             ├── bin
-            │   ├── simple-java-packaging
-            │   └── simple-java-packaging.bat
+            │   ├── simple-javaapp-packaging
+            │   └── simple-javaapp-packaging.bat
             └── lib
-                ├── org.scala-lang.scala-library-2.11.7.jar
-                └── simple-java-packaging.simple-java-packaging-1.0.0.jar
+                ├── com.github.dnvriend.simple-javaapp-packaging-1.0.0.jar
+                └── org.scala-lang.scala-library-2.11.7.jar
 ```
 
 And it creates the following `Dockerfile`:
@@ -133,7 +130,7 @@ WORKDIR /opt/docker
 ADD opt /opt
 RUN ["chown", "-R", "daemon:daemon", "."]
 USER daemon
-ENTRYPOINT ["bin/simple-java-packaging"]
+ENTRYPOINT ["bin/simple-javaapp-packaging"]
 CMD []
 ```
 
@@ -141,18 +138,16 @@ Lets actually build and package our project using docker using the `docker:publi
 
 ```bash
 > docker:publishLocal
-[info] Wrote /Users/dennis/projects/sbt-native-packager-test/single-module-build/target/scala-2.11/simple-java-packaging_2.11-1.0.0.pom
-[info] Sending build context to Docker daemon 5.769 MB
-[info] Step 1 : FROM java:latest
 ...
-[info] Built image simple-java-packaging:1.0.0
-[success] Total time: 1 s, completed 19-jan-2016 20:25:13
+[info] Successfully built 5eba301f438b
+[info] Built image simple-javaapp-packaging:1.0.0
+[success] Total time: 3 s, completed 20-jan-2016 15:43:08
 ```
 
 We can now run the docker image:
 
 ```bash
-$ docker run simple-java-packaging:1.0.0
+$ docker run simple-javaapp-packaging:1.0.0
 Hello World!
 ```
 

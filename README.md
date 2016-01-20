@@ -15,7 +15,10 @@ The following examples are sorted from very simple to complex. Simple projects o
 of the box and the more complex override these default settings because we don't like the 'acceptable default' and 
 override it with our own setting.
 
-- [single-module-build](https://github.com/dnvriend/sbt-native-packager-demo/tree/master/single-module-build)
+- [simple-javaapp-packaging](https://github.com/dnvriend/sbt-native-packager-demo/tree/master/simple-javaapp-packaging)
+  - An introduction to packaging a simple Java/Scala application with a minimum of configuration.
+- [simple-javaapp-with-config](https://github.com/dnvriend/sbt-native-packager-demo/tree/master/simple-javaapp-with-config)
+  - A simple Java application that uses the Typesafe Config library to lookup configuration. It introduces how to configure the universal plugin.
 
 ## Basic Configuration
 - In `project/build.properties` add:
@@ -38,7 +41,7 @@ addSbtPlugin("com.typesafe.sbt" %% "sbt-native-packager" % "1.1.0-M3")
 - Configure the project with minimum settings:
 
 ```scala
-name := "simple-java-packaging"
+name := "helloworld"
 
 version := "1.0.0"
 
@@ -95,7 +98,7 @@ and so on.
   - `universal:packageBin` 
   - Packaging format for all systems supporting zip using the `Universal plugin`.
 - [tar](http://www.scala-sbt.org/sbt-native-packager/formats/universal.html): 
-  - `universal:packageZipTarball` 
+  - ``:packageZipTarball` 
   - Packaging format for all systems supporting tar using the `Universal plugin`.
 - [xz](http://www.scala-sbt.org/sbt-native-packager/formats/universal.html): 
   - `universal:packageXzTarball` 

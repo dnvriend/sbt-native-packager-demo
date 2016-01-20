@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+// The following settings are common settings across all projects //
+
 version in ThisBuild := "1.0.0"
 
 organization in ThisBuild := "com.github.dnvriend"
@@ -23,7 +25,8 @@ scalaVersion in ThisBuild := "2.11.7"
 licenses in ThisBuild +=("Apache-2.0", url("http://opensource.org/licenses/apache2.0.php"))
 
 lazy val root = (project in file("."))
-	.aggregate(singleModuleBuild) // When a task is run on this project, it will also be run on aggregated projects.
-	.dependsOn(singleModuleBuild) // Adds classpath dependencies on internal or external projects.
+	.aggregate(simpleJavaAppPackaging, simpleJavaAppWithConfig) // When a task is run on this project, it will also be run on aggregated projects.
 
-lazy val singleModuleBuild = project in file("single-module-build")
+lazy val simpleJavaAppPackaging = project in file("simple-javaapp-packaging")
+
+lazy val simpleJavaAppWithConfig = project in file("simple-javaapp-with-config")
