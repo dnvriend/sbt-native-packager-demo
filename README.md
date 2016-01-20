@@ -76,13 +76,31 @@ __Note:__  Some packaging formats may only be created when the environment SBT r
 Ubuntu, the plugin can create the `deb` (Debian) package and packaging `docker` is only supported when `docker` is available
 and so on.
 
-- [deb](http://www.scala-sbt.org/sbt-native-packager/formats/debian.html): `debian:packageBin` - Packaging format for Debian based systems like Ubuntu using the `Debian plugin`.
-- [rpm](http://www.scala-sbt.org/sbt-native-packager/formats/rpm.html): `rpm:packageBin` - Packaging format for Redhat based systems like RHEL or CentOS using the `Rpm plugin`.
-- [msi](http://www.scala-sbt.org/sbt-native-packager/formats/windows.html): `windows:packageBin` - Packaging format for windows systems using the `Windows plugin`.
-- [dmg](http://www.scala-sbt.org/sbt-native-packager/formats/universal.html): `universal:packageOsxDmg` - Packaging format for osx based systems using the `Universal plugin`.
-- [docker](http://www.scala-sbt.org/sbt-native-packager/formats/docker.html): `docker:publishLocal` - Package your application in a docker container using the `Docker plugin`.
-- [zip](http://www.scala-sbt.org/sbt-native-packager/formats/universal.html): - `universal:packageBin` - Packaging format for all systems supporting zip using the `Universal plugin`.
-- [tar](http://www.scala-sbt.org/sbt-native-packager/formats/universal.html): `universal:packageZipTarball` - Packaging format for all systems supporting tar using the `Universal plugin`.
-- [xz](http://www.scala-sbt.org/sbt-native-packager/formats/universal.html): `universal:packageXzTarball` - Packaging format for all systems supporting xz using the `Universal plugin`.
-- [jdkpackager](http://www.scala-sbt.org/sbt-native-packager/formats/jdkpackager.html): `jdkPackager:packageBinl` Oracle javapackager create packages for your running platform using the `JDK Packager plugin`.
+- [deb](http://www.scala-sbt.org/sbt-native-packager/formats/debian.html): 
+  - `debian:packageBin` 
+  - Packaging format for Debian based systems like Ubuntu using the `Debian plugin`.
+- [rpm](http://www.scala-sbt.org/sbt-native-packager/formats/rpm.html): 
+  - `rpm:packageBin` 
+  - Packaging format for Redhat based systems like RHEL or CentOS using the `Rpm plugin`.
+- [msi](http://www.scala-sbt.org/sbt-native-packager/formats/windows.html): 
+  - `windows:packageBin` 
+  - Packaging format for windows systems using the `Windows plugin`.
+- [dmg](http://www.scala-sbt.org/sbt-native-packager/formats/universal.html): 
+  - `universal:packageOsxDmg` 
+  - Packaging format for osx based systems using the `Universal plugin`.
+- [docker](http://www.scala-sbt.org/sbt-native-packager/formats/docker.html): 
+  - `docker:publishLocal` 
+  - Package your application in a docker container using the `Docker plugin`.
+- [zip](http://www.scala-sbt.org/sbt-native-packager/formats/universal.html): 
+  - `universal:packageBin` 
+  - Packaging format for all systems supporting zip using the `Universal plugin`.
+- [tar](http://www.scala-sbt.org/sbt-native-packager/formats/universal.html): 
+  - `universal:packageZipTarball` 
+  - Packaging format for all systems supporting tar using the `Universal plugin`.
+- [xz](http://www.scala-sbt.org/sbt-native-packager/formats/universal.html): 
+  - `universal:packageXzTarball` 
+  - Packaging format for all systems supporting xz using the `Universal plugin`.
+- [jdkpackager](http://www.scala-sbt.org/sbt-native-packager/formats/jdkpackager.html): 
+  - `jdkPackager:packageBinl` 
+  - Oracle javapackager create packages for your running platform using the `JDK Packager plugin`.
 
