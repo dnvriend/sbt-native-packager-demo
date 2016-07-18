@@ -21,7 +21,7 @@ resolvers ++= Seq(
 )
 
 // to package applications
-addSbtPlugin("com.typesafe.sbt" %% "sbt-native-packager" % "1.1.0-M3")
+addSbtPlugin("com.typesafe.sbt" %% "sbt-native-packager" % "1.1.4")
 
 // to format scala source code
 addSbtPlugin("com.typesafe.sbt" % "sbt-scalariform" % "1.3.0")

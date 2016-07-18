@@ -43,6 +43,5 @@ object Settings {
         .setPreference(AlignSingleLineCaseStatements, true)
         .setPreference(AlignSingleLineCaseStatements.MaxArrowIndent, 100)
         .setPreference(DoubleIndentClassDeclaration, true)
-        .setPreference(RewriteArrowSymbols, true)
     )
 }
